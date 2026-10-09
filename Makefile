@@ -19,8 +19,8 @@ clean::
 	$(CC) -o $@ $(CFLAGS) $(LDFLAGS) $(LIBS) $<
 
 %-opt.x: %.c
-	$(CC) -o $@ $(CFLAGS) $(OPTCFLAGS) $<
+	$(CC) -o $@ $(CFLAGS) $(LDFLAGS) $(LIBS) $(OPTCFLAGS) $<
 
 %-fsan.x: %.c
-	$(CC) -o $@ $(CFLAGS) -fsanitize=address -g $<
+	$(CC) -o $@ $(CFLAGS) $(LDFLAGS) $(LIBS) -fsanitize=address -g $<
 

@@ -1,8 +1,9 @@
 
 VPATH = ..
 
-TARGETS	=	simple.s simple-opt.s simple.x simple-opt.x \
-		segfault.x buserror.x illegalinstr.x fpe.x
+TARGETS	=	simple.s simple-opt.s simple.x simple-opt.x simple-fsan.x \
+		segfault.x buserror.x illegalinstr.x fpe.x \
+		not-so-simple.x not-so-simple-fsan.x
 
 -include Makefile.inc
 
@@ -20,4 +21,6 @@ clean::
 %-opt.x: %.c
 	$(CC) -o $@ $(CFLAGS) $(OPTCFLAGS) $<
 
+%-fsan.x: %.c
+	$(CC) -o $@ $(CFLAGS) -fsanitize=address -g $<
 

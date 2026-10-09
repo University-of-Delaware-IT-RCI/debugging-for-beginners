@@ -2,6 +2,18 @@
 #include <stdlib.h>
 #include <stdint.h>
 
+#if defined(__APPLE__)
+#   include "baseaddr.h"
+
+__attribute__((constructor))
+void
+apple_vm_info(void)
+{
+    show_vmaddr_base_offset();
+}
+
+#endif
+
 static const uint32_t data[] = {0xFEEDFACE, 0xB000B000, 0xCAFECAFE};
 
 int

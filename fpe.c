@@ -1,6 +1,18 @@
 #include <stdio.h>
 #include <math.h>
 
+#if defined(__APPLE__)
+#   include "baseaddr.h"
+
+__attribute__((constructor))
+void
+apple_vm_info(void)
+{
+    show_vmaddr_base_offset();
+}
+
+#endif
+
 int
 main()
 {

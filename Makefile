@@ -26,3 +26,5 @@ clean::
 %-fsan.x: %.c
 	$(CC) -o $@ $(CFLAGS) $(LDFLAGS) $(LIBS) -fsanitize=address -g $<
 
+not-so-simple-2-opt.x: CFLAGS += -g
+

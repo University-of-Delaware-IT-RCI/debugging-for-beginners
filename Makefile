@@ -3,7 +3,8 @@ VPATH = ..
 
 TARGETS	=	simple.s simple-opt.s simple.x simple-opt.x simple-fsan.x \
 		segfault.x buserror.x illegalinstr.x fpe.x \
-		not-so-simple.x not-so-simple-fsan.x
+		not-so-simple-1.x not-so-simple-1-fsan.x \
+		not-so-simple-2.x not-so-simple-2-fsan.x
 
 -include Makefile.inc
 

@@ -61,7 +61,9 @@ main()
     
     /* Loop over the elements of the table_of_x list, watching for
        the sentinel value (0) signalling the end-of-list: */
-    while ( x ) printf("%12.5g %12.5g\n", *x, h(*x)), x++;
-    
+    while ( x ) {
+        printf("%12.5g %12.5g\n", *x, h(*x))'
+        x++;
+    }
     return 0;
 }

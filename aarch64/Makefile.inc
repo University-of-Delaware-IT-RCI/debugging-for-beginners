@@ -2,7 +2,7 @@
 CC		= cc
 CFLAGS		=
 OPTCFLAGS	= -O3
-DISASM		= otool -tV
+DISASM		= otool -tjV
 
 TARGETS	+=	baseaddr.x
 

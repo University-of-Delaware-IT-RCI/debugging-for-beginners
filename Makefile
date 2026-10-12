@@ -23,6 +23,9 @@ clean::
 %.x: %.c
 	$(CC) -o $@ $(CFLAGS) $(LDFLAGS) $(LIBS) $<
 
+%.s: %.c
+	$(CC) -o $@ -S $(CFLAGS) $<
+
 %-opt.x: %.c
 	$(CC) -o $@ $(CFLAGS) $(LDFLAGS) $(LIBS) $(OPTCFLAGS) $<
 

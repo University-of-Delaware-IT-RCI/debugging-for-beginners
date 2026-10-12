@@ -7,9 +7,13 @@ TARGETS		= simple.s simple-opt.s simple.x simple-opt.x simple-fsan.x \
 		  not-so-simple-2.x not-so-simple-2-fsan.x not-so-simple-2-opt.x \
 		  not-so-simple-3.x not-so-simple-3-opt.x \
 		  not-so-simple-4.x not-so-simple-4-opt.x \
-		  mypyfunc.$(SOEXT)
+		  mypyfunc.$(SOEXT) mypyfunc-dbg.$(SOEXT)
 
 CFLAGS		= -I.
+OPTCFLAGS	=
+DGBCFLAGS	= -O0 -g
+OPTCFLAGS	=
+
 
 SANTZCFLAGS	= -fsanitize=address -g
 
@@ -38,6 +42,9 @@ clean::
 
 %.$(SOEXT): %.c
 	$(CC) -fPIC -shared -o $@ $(CFLAGS) $(OPTCFLAGS) $(LDFLAGS) $(LIBS) $<
+
+%-dbg.$(SOEXT): %.c
+	$(CC) -fPIC -shared -o $@ $(CFLAGS) $(DGBCFLAGS) $(LDFLAGS) $(LIBS) $<
 
 not-so-simple-%-opt.x: CFLAGS += -g
 

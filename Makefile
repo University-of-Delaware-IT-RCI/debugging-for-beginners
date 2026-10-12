@@ -12,8 +12,6 @@ CFLAGS		= -I.
 
 default: $(TARGETS)
 
--include Makefile.inc
-
 clean::
 	$(RM) *.s *.x
 
@@ -23,9 +21,6 @@ clean::
 %.x: %.c
 	$(CC) -o $@ $(CFLAGS) $(LDFLAGS) $(LIBS) $<
 
-%.s: %.c
-	$(CC) -o $@ -S $(CFLAGS) $<
-
 %-opt.x: %.c
 	$(CC) -o $@ $(CFLAGS) $(LDFLAGS) $(LIBS) $(OPTCFLAGS) $<
 
@@ -33,4 +28,6 @@ clean::
 	$(CC) -o $@ $(CFLAGS) $(LDFLAGS) $(LIBS) -fsanitize=address -g $<
 
 not-so-simple-%-opt.x: CFLAGS += -g
+
+-include Makefile.inc
 

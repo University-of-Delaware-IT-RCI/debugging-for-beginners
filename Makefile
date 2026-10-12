@@ -10,7 +10,13 @@ TARGETS		= simple.s simple-opt.s simple.x simple-opt.x simple-fsan.x \
 
 CFLAGS		= -I.
 
-default: $(TARGETS)
+.PHONY: default all clean
+
+default:: all
+
+-include Makefile.inc
+
+all: $(TARGETS)
 
 clean::
 	$(RM) *.s *.x
@@ -28,6 +34,4 @@ clean::
 	$(CC) -o $@ $(CFLAGS) $(LDFLAGS) $(LIBS) -fsanitize=address -g $<
 
 not-so-simple-%-opt.x: CFLAGS += -g
-
--include Makefile.inc
 

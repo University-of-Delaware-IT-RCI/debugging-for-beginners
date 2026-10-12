@@ -10,9 +10,9 @@ TARGETS		= simple.s simple-opt.s simple.x simple-opt.x simple-fsan.x \
 
 CFLAGS		= -I.
 
--include Makefile.inc
-
 default: $(TARGETS)
+
+-include Makefile.inc
 
 clean::
 	$(RM) *.s *.x

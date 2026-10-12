@@ -1,9 +1,10 @@
 
 CC		= gcc
-CFLAGS		=
-OPTCFLAGS	= -O3
+CFLAGS		+=
+OPTCFLAGS	+= -O3
 DISASM		= objdump --disassemble=main --section=.text
 LIBS		+= -lm
+SOEXT		= so
 
 TARGETS		+= simple-i386.s simple-i386-opt.s
 
